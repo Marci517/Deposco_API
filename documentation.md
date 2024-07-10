@@ -1,278 +1,412 @@
-ns2:items
-└── item
-    ├── businessUnit
-    ├── number
-    ├── name
-    ├── itemType
-    ├── classType
-    ├── shortDescription
-    ├── longDescription
-    ├── dimension
-    │   ├── length
-    │   ├── width
-    │   ├── height
-    │   └── volume
-    ├── itemWeight
-    │   └── weight
-    ├── abcCategory
-    ├── productCode
-    ├── originCountry
-    ├── cycleCount
-    ├── tradingPartner
-    ├── purchaseCost
-    ├── unitPrice
-    ├── bornOnDateRequired
-    ├── expirationDateRequired
-    ├── receiveDateRequired
-    ├── quarantineRequired
-    ├── inspectionRequired
-    ├── catchWeightRequired
-    ├── hazmat
-    ├── hazmatCode
-    ├── intangibleItemFlag
-    ├── inventoryTrackingEnabled
-    ├── lotTrackingEnabled
-    ├── serialTrackingEnabled
-    ├── shippable
-    ├── purchased
-    ├── receiveOverTolerance
-    ├── receiveUnderTolerance
-    ├── cycleCountFrequency
-    ├── reorderQuantity
-    ├── customFields
-    ├── carrierSpecialServices
-    ├── packs
-    │   └── pack
-    │       ├── type
-    │       ├── quantity
-    │       ├── weight
-    │       ├── weightUOM
-    │       ├── dimension
-    │       │   ├── length
-    │       │   ├── width
-    │       │   ├── height
-    │       │   └── volume
-    │       ├── units
-    │       ├── upcs
-    │       └── customMappings
-    ├── upcs
-    ├── nmfcNumber
-    ├── harmonizedCode
-    ├── mixLots
-    ├── customMappings
-    ├── components
-    ├── itemVendors
-    ├── ule
-    ├── kitOrderOnly
-    ├── kitStockOnly
-    ├── createdDate
-    ├── updatedDate
-    ├── assemblyCost
-    ├── handlingCost
-    ├── storageCost
-    ├── assembleToOrderFlag
-    ├── salesEnabledFlag
-    ├── reorderPoint
-    ├── pickStrategy
-    └── planItems
+# Deposco API Documentation
+## Get All Products
+
+### XML Tree
+
+- ns2:items
+  - item
+    - businessUnit
+    - number
+    - name
+    - itemType
+    - classType
+    - shortDescription
+    - longDescription
+    - dimension
+      - length
+      - width
+      - height
+      - volume
+    - itemWeight
+      - weight
+    - abcCategory
+    - productCode
+    - originCountry
+    - cycleCount
+    - tradingPartner
+    - purchaseCost
+    - unitPrice
+    - bornOnDateRequired
+    - expirationDateRequired
+    - receiveDateRequired
+    - quarantineRequired
+    - inspectionRequired
+    - catchWeightRequired
+    - hazmat
+    - hazmatCode
+    - intangibleItemFlag
+    - inventoryTrackingEnabled
+    - lotTrackingEnabled
+    - serialTrackingEnabled
+    - shippable
+    - purchased
+    - receiveOverTolerance
+    - receiveUnderTolerance
+    - cycleCountFrequency
+    - reorderQuantity
+    - customFields
+    - carrierSpecialServices
+    - packs
+      - pack
+        - type
+        - quantity
+        - weight
+        - weightUOM
+        - dimension
+          - length
+          - width
+          - height
+          - volume
+        - units
+        - upcs
+        - customMappings
+    - upcs
+    - nmfcNumber
+    - harmonizedCode
+    - mixLots
+    - customMappings
+    - components
+    - itemVendors
+    - ule
+    - kitOrderOnly
+    - kitStockOnly
+    - createdDate
+    - updatedDate
+    - assemblyCost
+    - handlingCost
+    - storageCost
+    - assembleToOrderFlag
+    - salesEnabledFlag
+    - reorderPoint
+    - pickStrategy
+    - planItems
 
 
-Fields Description
+---
+### Fields Description (of item)
 
-businessUnit
+**businessUnit**
+
 Description: The business unit code.
 Example: "ZESTT"
-number
+---
+**number**
+
 Description: The item number or SKU.
 Example: "Z-PK104"
-name
+---
+**name**
+
 Description: The name of the item.
 Example: "Z- Large Box"
-itemType
+---
+**itemType**
+
 Description: The type of the item.
 Nullable: Yes
-classType
+---
+**classType**
+
 Description: The class of the item.
 Nullable: Yes
-shortDescription
+---
+**shortDescription**
+
 Description: A short description of the item.
 Example: "Z- Large Box"
-longDescription
+---
+**longDescription**
+
 Description: A detailed description of the item.
 Example: "Z- Large Box"
-dimension
+---
+**dimension**
+
 Description: The dimensions of the item.
+
 length: Length of the item.
 Example: 0.0
+
 width: Width of the item.
 Example: 0.0
+
 height: Height of the item.
 Example: 0.0
+
 volume: Volume of the item.
 Example: 0.0
-itemWeight
+---
+**itemWeight**
+
 Description: The weight details of the item.
+
 weight: Weight of the item.
 Example: 0.0
-abcCategory
+---
+**abcCategory**
+
 Description: ABC category.
 Nullable: Yes
-productCode
+---
+**productCode**
+
 Description: Product code.
 Nullable: Yes
-originCountry
+---
+**originCountry**
+
 Description: Country of origin.
 Example: "IN"
-cycleCount
+---
+**cycleCount**
+
 Description: Indicates if the item requires cycle counting.
 Example: false
-tradingPartner
+---
+**tradingPartner**
+
 Description: Trading partner information.
 Nullable: Yes
-purchaseCost
+---
+**purchaseCost**
+
 Description: Purchase cost of the item.
 Example: 0.0
-unitPrice
+---
+**unitPrice**
+
 Description: Unit price of the item.
 Example: 0.0
-bornOnDateRequired
+---
+**bornOnDateRequired**
+
 Description: Indicates if a born-on date is required.
 Example: false
-expirationDateRequired
+---
+**expirationDateRequired**
+
 Description: Indicates if an expiration date is required.
 Example: false
-receiveDateRequired
-Description: Indicates if a receive date is required.
+---
+**receiveDateRequired**
+
+Description: Indicates if a recieve date is required.
 Example: false
-quarantineRequired
+---
+**quarantineRequired**
+
 Description: Indicates if quarantine is required.
 Example: false
-inspectionRequired
+---
+**inspectionRequired**
+
 Description: Indicates if inspection is required.
 Example: false
-catchWeightRequired
+---
+**catchWeightRequired**
+
 Description: Indicates if catch weight is required.
 Nullable: Yes
-hazmat
+---
+**hazmat**
+
 Description: Indicates if the item is hazardous material.
 Example: false
-hazmatCode
+---
+**hazmatCode**
+
 Description: Hazardous material code.
 Nullable: Yes
-intangibleItemFlag
+---
+**intangibleItemFlag**
+
 Description: Indicates if the item is intangible.
 Example: false
-inventoryTrackingEnabled
+---
+**inventoryTrackingEnabled**
+
 Description: Indicates if inventory tracking is enabled.
 Example: false
-lotTrackingEnabled
+---
+**lotTrackingEnabled**
+
 Description: Indicates if lot tracking is enabled.
 Example: false
-serialTrackingEnabled
+---
+**serialTrackingEnabled**
+
 Description: Indicates if serial tracking is enabled.
 Example: false
-shippable
+---
+**shippable**
+
 Description: Indicates if the item is shippable.
 Example: false
-purchased
+---
+**purchased**
+
 Description: Indicates if the item is purchased.
 Example: false
-receiveOverTolerance
+---
+**receiveOverTolerance**
+
 Description: Receive over tolerance percentage.
 Example: 1.0
-receiveUnderTolerance
+---
+**receiveUnderTolerance**
+
 Description: Receive under tolerance percentage.
 Nullable: Yes
-cycleCountFrequency
+---
+**cycleCountFrequency**
+
 Description: Frequency of cycle count.
 Example: 0
-reorderQuantity
+---
+**reorderQuantity**
+
 Description: Quantity to reorder.
 Example: 0
-customFields
+---
+**customFields**
+
 Description: Custom fields for additional data.
-carrierSpecialServices
+
+---
+**carrierSpecialServices**
+
 Description: Carrier special services (if any).
-packs
+
+---
+**packs**
+
 Description: Packing details.
+
 pack: Information about a pack.
 type: Type of pack.
 Example: "Pallet"
+
 quantity: Quantity in the pack.
 Example: 1
+
 weight: Weight of the pack.
 Example: 0.9
+
 weightUOM: Unit of measure for weight.
 Example: "LB"
+
 dimension: Dimensions of the pack.
+
 length: Length of the pack.
 Example: 6.0
+
 width: Width of the pack.
 Example: 10.0
+
 height: Height of the pack.
 Example: 1.75
+
 volume: Volume of the pack.
 Example: 105.0
+
 units: Unit of measure for dimensions.
 Example: "IN"
+
 upcs: Universal Product Codes for the pack (if any).
+
 customMappings: Custom mappings for the pack.
 Nullable: Yes
-upcs
-Description: Universal Product Codes.
-nmfcNumber
+---
+**nmfcNumber**
+
 Description: NMFC Number.
 Nullable: Yes
-harmonizedCode
+---
+**harmonizedCode**
+
 Description: Harmonized code.
 Nullable: Yes
-mixLots
+---
+**mixLots**
+
 Description: Indicates if the item can mix lots.
 Example: false
-customMappings
+---
+**customMappings**
+
 Description: Custom mappings.
 Nullable: Yes
-components
+---
+**components**
+
 Description: Item components.
 Nullable: Yes
-itemVendors
+---
+**itemVendors**
+
 Description: Item vendors.
 Nullable: Yes
-ule
+---
+**ule**
+
 Description: Unit load equipment.
 Example: 0.0
-kitOrderOnly
+---
+**kitOrderOnly**
+
 Description: Indicates if the item is order only for kits.
 Example: false
-kitStockOnly
+---
+**kitStockOnly**
+
 Description: Indicates if the item is stock only for kits.
 Example: false
-createdDate
+---
+**createdDate**
+
 Description: Creation date of the item.
 Example: "2023-07-27T10:23:29"
-updatedDate
+---
+**updatedDate**
+
 Description: Last update date of the item.
 Example: "2024-02-20T10:52:41"
-assemblyCost
+---
+**assemblyCost**
+
 Description: Assembly cost of the item.
 Example: 0.0
-handlingCost
+---
+**handlingCost**
+
 Description: Handling cost of the item.
 Example: 0.0
-storageCost
+---
+**storageCost**
+
 Description: Storage cost of the item.
 Example: 0.0
-assembleToOrderFlag
+---
+**assembleToOrderFlag**
+
 Description: Indicates if the item is assembled to order.
 Example: false
-salesEnabledFlag
+---
+**salesEnabledFlag**
+
 Description: Indicates if the item is enabled for sales.
 Example: false
-reorderPoint
+---
+**reorderPoint**
+
 Description: Reorder point quantity.
 Example: 0
-pickStrategy
+---
+**pickStrategy**
+
 Description: Picking strategy.
 Nullable: Yes
-planItems
+---
+**planItems**
+
 Description: Plan items.
