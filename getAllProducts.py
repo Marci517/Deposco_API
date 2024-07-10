@@ -3,7 +3,7 @@ import xml.etree.ElementTree as ET
 from requests.auth import HTTPBasicAuth
 import xml.dom.minidom
 
-# Define your credentials
+# Define credentials
 username = 'hbird'
 password = 'Hbird@APi9'
 
