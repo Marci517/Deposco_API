@@ -1,41 +1,41 @@
 import requests
 import xml.etree.ElementTree as ET
 from requests.auth import HTTPBasicAuth
+import xml.dom.minidom
 
 # Define your credentials
 username = 'hbird'
 password = 'Hbird@APi9'
 
 
-# Function to get all inventories
-def get_all_inventories(root):
-    inventories = []
-    for item_inventory in root.findall('.//itemInventory'):
-        item_number = item_inventory.find('itemNumber').text
-        for facility_inventory in item_inventory.findall('facilityInventory'):
-            facility = facility_inventory.find('facility').text
-            inventory = facility_inventory.find('inventory')
-            total = inventory.find('total').text
-            available_to_promise = inventory.find('availableToPromise').text
-            unallocated = inventory.find('unallocated').text
-            allocated = inventory.find('allocated').text
-
-            inventories.append({
-                'itemNumber': item_number,
-                'facility': facility,
-                'total': total,
-                'availableToPromise': available_to_promise,
-                'unallocated': unallocated,
-                'allocated': allocated
-            })
-    return inventories
-
-
-# Function to get one item/product
-def get_one_product(inventoryNumber):
-    url = f'https://nfie-uat.deposco.com/integration/NFIE/items/{inventoryNumber}'
+# Function to get product details as XML
+def get_product_details(itemNumber):
+    url = f'https://nfie-uat.deposco.com/integration/NFIE/items/{itemNumber}'
     # Make the API call with Basic Authentication
     response = requests.get(url, auth=HTTPBasicAuth(username, password))
+    if response.status_code == 200:
+        # Parse the XML data
+        root = ET.fromstring(response.content)
+        return root
+    else:
+        print(f"Failed to retrieve data for item {itemNumber}: {response.status_code}")
+        return None
+
+
+# Function to get all inventories
+def get_all_inventories(root):
+    itemNumbers = []
+    for item_inventory in root.findall('.//itemInventory'):
+        item_number = item_inventory.find('itemNumber').text
+        itemNumbers.append(item_number)
+    return itemNumbers
+
+
+# Function to prettify XML
+def prettify_xml(elem):
+    rough_string = ET.tostring(elem, 'utf-8')
+    reparsed = xml.dom.minidom.parseString(rough_string)
+    return reparsed.toprettyxml(indent="  ")
 
 
 # Define the URL of the API endpoint
@@ -49,12 +49,13 @@ if response.status_code == 200:
     # Parse the XML data
     root = ET.fromstring(response.content)
     # Get all inventories
-    inventories = get_all_inventories(root)
-    for i in inventories:
-        get_one_product(inventories['inventoryNumber'])
+    itemNumbers = get_all_inventories(root)
 
-    # Print the inventories
-    for inventory in inventories:
-        print(inventory)
+    # Get and print product details for each item number
+    for i in itemNumbers:
+        product_details = get_product_details(i)
+        if product_details is not None:
+            pretty_xml = prettify_xml(product_details)
+            print(pretty_xml)
 else:
     print(f"Failed to retrieve data: {response.status_code}")
