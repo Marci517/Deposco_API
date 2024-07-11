@@ -515,3 +515,57 @@ Nullable: Yes
 **planItems**
 
 Description: Plan items.
+
+---
+## Get All Inventory For Product
+
+### XML Tree
+
+- itemInventory
+  - item Number
+  - facilityInventory
+    - facility
+    - inventory
+      - total
+      - availableToPromise
+      - unallocated
+      - allocated
+      
+### Fields Description (of itemInventory)
+
+**itemNumber**
+
+Description:
+
+Example: 10001-100-00002
+
+---
+
+**facility**
+
+Description:
+
+Example: CMB1
+
+---
+
+*inventory:*
+
+  **total**
+
+  
+  Example: 248
+  
+  **availableToPromise**
+
+  Example: 248.0
+  
+  **unallocated**
+
+  Example: 248.0
+  
+  **allocated**
+  
+  Example: 0.0
+
+---
