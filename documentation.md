@@ -535,15 +535,11 @@ Description: Plan items.
 
 **itemNumber**
 
-Description:
-
 Example: 10001-100-00002
 
 ---
 
 **facility**
-
-Description:
 
 Example: CMB1
 
